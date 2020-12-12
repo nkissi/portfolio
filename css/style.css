@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'Bahnschrift Condensed';
 }
 
 #canvas1 {
@@ -17,6 +17,28 @@
     background: #000000;
     z-index: -1; 
 }
+/* HEADER */ 
+header {
+    overflow: hidden;
+}
+.navbar {
+    width: 100%;
+    font-size: 2em;
+    position: absolute;
+    top: -100%;
+    animation: anim1 1s forwards 2.5s; 
+}
+.navbar ul li {
+    margin-left: 100px;
+}
+@keyframes anim1 {
+    from{
+        top: -100%;
+    }
+    to {
+        top: 0%;
+    }
+}
 .portfolio {
     color: #ffffff;
     z-index: 0;
@@ -24,8 +46,185 @@
 .navbar, .nav-link {
     color: #ffffff;
 }
-
+.nav-link {
+    transition: all .5s;
+}
+.nav-link.active {
+    background-color: #ffffff;
+    color: #000000;
+}
 .nav-link:hover {
+    color: #000000;
+    background-color: #ffffff;
+}
+.container img {
+    border-radius: 100%;
+}
+.container {
+    line-height: 130px;
+    margin-top: 8rem !important;
+    margin-bottom: 8rem !important;
+    overflow: hidden;
+}
+.me, #button {
+    animation: animImg 3s forwards 3.5s;
+    opacity: 0;
+}
+@keyframes animImg {
+    0% {
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    90%{
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+
+}
+.name {
+    font-size: 10em;
+    font-weight: 500;
+    position: relative;
+    left: -100%;
+    animation: animText 2s forwards 3s;
+}
+@keyframes animText{
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+.name::before, .name::after {
+    content: 'NASSIM KISSI';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: transparent;
     color: #ffffff;
-    text-decoration: underline;
+}
+.name:before{
+    left: 8px;
+    text-shadow: 2px 0 #000000;
+    animation: effect 3s infinite linear;
+}
+.name:after{
+    left: 4px;
+    text-shadow: -2px 0 #000000;
+    animation: effect 3s infinite linear;
+}
+@-webkit-keyframes effect {
+    0% {
+        clip: rect(55px,9999px,56px,0);
+    }
+    5% {
+        clip: rect(47px,9999px,30px,0);
+    }
+    10% {
+        clip: rect(33px,9999px,36px,0);
+    }
+    15% {
+        clip: rect(35px,9999px,9px,0);
+    }
+    20% {
+        clip: rect(63px,9999px,59px,0);
+    }
+    25% {
+        clip: rect(96px,9999px,98px,0);
+    }
+    30% {
+        clip: rect(48px,9999px,77px,0);
+    }
+    35% {
+        clip: rect(50px,9999px,34px,0);
+    }
+    40% {
+        clip: rect(60px,9999px,72px,0);
+    }
+    45% {
+        clip: rect(10px,9999px,81px,0);
+    }
+    50% {
+        clip: rect(2px,9999px,60px,0);
+    }
+    55% {
+        clip: rect(23px,9999px,89px,0);
+    }
+    60% {
+        clip: rect(76px,9999px,91px,0);
+    }
+    65% {
+        clip: rect(62px,9999px,30px,0);
+    }
+    70% {
+        clip: rect(60px,9999px,73px,0);
+    }
+    75% {
+        clip: rect(60px,9999px,87px,0);
+    }
+    80% {
+        clip: rect(2px,9999px,14px,0);
+    }
+    85% {
+        clip: rect(28px,9999px,87px,0);
+    }
+    90% {
+        clip: rect(73px,9999px,50px,0);
+    }
+    95% {
+        clip: rect(79px,9999px,70px,0);
+    }
+    100% {
+        clip: rect(17px,9999px,79px,0);
+    }
+}
+
+.subtitle{
+    font-weight: 500;
+    position: relative;
+    left: -100%;
+    animation: animText 2s forwards 3s;
+}
+
+#button{
+    color: white;
+    text-decoration: none;
+    padding: 15px 40px;
+    border: 2px solid white;
+    outline: 1px solid rgba(255, 255,255,.7);
+    transition: all .7s;
+}
+#button:hover{
+    text-shadow: 0 0 20px rgba(255,255,255,.1);
+    box-shadow: inset 0 0 20px rgba(255, 255,255,.2), 0 0 20px rgba(255, 255,255,0.3);
+    outline-color: rgba(255, 255,255,0);
+    outline-offset: 15px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1000px){
+    .navbar ul li {
+        margin-left: 50px;
+    }
+}
+@media screen and (max-width: 760px){
+    .name {
+        font-size: 5em;
+        text-align: center;
+    }
+    .navbar {
+        font-size: 1em;
+    }
+}
+@media screen and (max-width: 600px){
+    .navbar ul li {
+        margin-left: 0;
+    }
 }
